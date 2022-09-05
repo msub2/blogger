@@ -1,21 +1,21 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 // controllers
-const {
+import {
   createTag,
   getTags,
   getTag,
   removeTag
-} = require('../controllers/tag-controller');
+} from '../controllers/tag-controller.js';
 
 // validators
-const { runValidation } = require('../validators');
-const { tagCreateValidator } = require('../validators/tag-validator');
-const {
+import { runValidation } from '../validators/index.js';
+import { tagCreateValidator } from '../validators/tag-validator.js';
+import {
   requireSignin,
   adminMiddleWare
-} = require('../controllers/auth-controller');
+} from '../controllers/auth-controller.js';
 
 router.post(
   '/tag',
@@ -29,4 +29,4 @@ router.get('/tags', getTags);
 router.get('/tag/:slug', getTag);
 router.delete('/tag/:slug', requireSignin, adminMiddleWare, removeTag);
 
-module.exports = router;
+export default router;

@@ -1,16 +1,16 @@
-const Blog = require('../models/blog-model');
-const User = require('../models/user-model');
-const Category = require('../models/category-model');
-const Tag = require('../models/tag-model');
-const formidable = require('formidable');
-const slugify = require('slugify');
-const stripHtml = require('string-strip-html');
-const _ = require('lodash');
-const { errorHandler } = require('../helpers/dbErrorHandler');
-const fs = require('fs');
-const { smartTrim } = require('../helpers/blog');
+import Blog from '../models/blog-model.js';
+import User from '../models/user-model.js';
+import Category from '../models/category-model.js';
+import Tag from '../models/tag-model.js';
+import formidable from 'formidable';
+import slugify from 'slugify';
+import { stripHtml } from 'string-strip-html';
+import _ from 'lodash';
+import { errorHandler } from '../helpers/dbErrorHandler.js';
+import fs from 'fs';
+import { smartTrim } from '../helpers/blog.js';
 
-exports.createBlog = (req, res) => {
+const createBlog = (req, res) => {
   // get all form data
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
@@ -111,7 +111,7 @@ exports.createBlog = (req, res) => {
   });
 };
 
-exports.getBlog = (req, res) => {
+const getBlog = (req, res) => {
   const slug = req.params.slug.toLowerCase();
 
   Blog.findOne({ slug })
@@ -131,7 +131,7 @@ exports.getBlog = (req, res) => {
     });
 };
 
-exports.getBlogs = (req, res) => {
+const getBlogs = (req, res) => {
   Blog.find({})
     .populate('categories', '_id name slug')
     .populate('tags', '_id name slug')
@@ -149,7 +149,7 @@ exports.getBlogs = (req, res) => {
     });
 };
 
-exports.removeBlog = (req, res) => {
+const removeBlog = (req, res) => {
   const slug = req.params.slug.toLowerCase();
 
   Blog.findOneAndRemove({ slug }).exec((err, data) => {
@@ -162,7 +162,7 @@ exports.removeBlog = (req, res) => {
   });
 };
 
-exports.updateBlog = (req, res) => {
+const updateBlog = (req, res) => {
   const slug = req.params.slug.toLowerCase();
 
   Blog.findOne({ slug }).exec((err, oldBlog) => {
@@ -234,7 +234,7 @@ exports.updateBlog = (req, res) => {
   });
 };
 
-exports.getPhoto = (req, res) => {
+const getPhoto = (req, res) => {
   const slug = req.params.slug.toLowerCase();
 
   Blog.findOne({ slug })
@@ -250,7 +250,7 @@ exports.getPhoto = (req, res) => {
     });
 };
 
-exports.getAllBlogsCategoriesAndTags = (req, res) => {
+const getAllBlogsCategoriesAndTags = (req, res) => {
   // set the default limit to 10
   let limit = req.body.limit ? parseInt(req.body.limit) : 10;
   // how many to skip
@@ -306,7 +306,7 @@ exports.getAllBlogsCategoriesAndTags = (req, res) => {
     });
 };
 
-exports.getRelatedBlogs = (req, res) => {
+const getRelatedBlogs = (req, res) => {
   let limit = req.body.limit ? parseInt(req.body.limit) : 3;
   const { _id, categories } = req.body;
 
@@ -325,7 +325,7 @@ exports.getRelatedBlogs = (req, res) => {
     });
 };
 
-exports.blogSearch = (req, res) => {
+const blogSearch = (req, res) => {
   // get the request query by the name search
   const { search } = req.query;
   console.log(req.query);
@@ -352,7 +352,7 @@ exports.blogSearch = (req, res) => {
   }
 };
 
-exports.getUserBlogs = (req, res) => {
+const getUserBlogs = (req, res) => {
   User.findOne({ username: req.params.username }).exec((err, user) => {
     if (err) {
       return res.status(400).json({
@@ -375,3 +375,16 @@ exports.getUserBlogs = (req, res) => {
       });
   });
 };
+
+export {
+  createBlog,
+  getBlog,
+  getBlogs,
+  removeBlog,
+  updateBlog,
+  getPhoto,
+  getAllBlogsCategoriesAndTags,
+  getRelatedBlogs,
+  blogSearch,
+  getUserBlogs
+}

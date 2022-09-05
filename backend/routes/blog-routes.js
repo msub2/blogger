@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const {
+import {
   createBlog,
   getBlog,
   getBlogs,
@@ -11,13 +11,13 @@ const {
   getRelatedBlogs,
   blogSearch,
   getUserBlogs
-} = require('../controllers/blog-controller');
-const {
+} from '../controllers/blog-controller.js';
+import {
   requireSignin,
   adminMiddleWare,
   authMiddleWare,
   canUpdateAndDeleteBlog
-} = require('../controllers/auth-controller');
+} from '../controllers/auth-controller.js';
 
 router.post('/blog', requireSignin, adminMiddleWare, createBlog);
 router.get('/blog/:slug', getBlog);
@@ -48,4 +48,4 @@ router.put(
   updateBlog
 );
 
-module.exports = router;
+export default router;

@@ -1,19 +1,19 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const {
+import {
   createCategory,
   getCategories,
   getCategory,
   removeCategory
-} = require('../controllers/category-controller');
+} from '../controllers/category-controller.js';
 
 // validators
-const { runValidation } = require('../validators');
-const { categoryCreateValidator } = require('../validators/category-validator');
-const {
+import { runValidation } from '../validators/index.js';
+import { categoryCreateValidator } from '../validators/category-validator.js';
+import {
   requireSignin,
   adminMiddleWare
-} = require('../controllers/auth-controller');
+} from '../controllers/auth-controller.js';
 
 router.post(
   '/category',
@@ -32,4 +32,4 @@ router.delete(
   removeCategory
 );
 
-module.exports = router;
+export default router;

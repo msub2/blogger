@@ -29,5 +29,6 @@
     "shortid": "^2.2.16",
     "slugify": "^1.6.5",
     "string-strip-html": "^11.6.1"
-  }
+  },
+  "type": "module"
 }

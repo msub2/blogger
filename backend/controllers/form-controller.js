@@ -1,7 +1,7 @@
-const sgMail = require('@sendgrid/mail');
+import sgMail from '@sendgrid/mail';
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-exports.contactForm = (req, res) => {
+const contactForm = (req, res) => {
   const { name, email, message } = req.body;
 
   const emailData = {
@@ -27,7 +27,7 @@ exports.contactForm = (req, res) => {
   sgMail.send(emailData).then(send => res.json({ success: true }));
 };
 
-exports.contactBlogAuthorForm = (req, res) => {
+const contactBlogAuthorForm = (req, res) => {
   const { authorEmail, name, email, message } = req.body;
 
   let mailList = [authorEmail, process.env.EMAIL_TO];
@@ -57,3 +57,5 @@ exports.contactBlogAuthorForm = (req, res) => {
 
   sgMail.send(emailData).then(send => res.json({ success: true }));
 };
+
+export { contactForm, contactBlogAuthorForm }

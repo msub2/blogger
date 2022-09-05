@@ -1,6 +1,6 @@
-const { check } = require('express-validator');
+import { check } from 'express-validator';
 
-exports.contactFormValidator = [
+const contactFormValidator = [
   check('name')
     .not()
     .isEmpty()
@@ -14,3 +14,5 @@ exports.contactFormValidator = [
     .isLength({ min: 20 })
     .withMessage('Message must be at least 20 characters long')
 ];
+
+export { contactFormValidator }

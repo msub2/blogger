@@ -1,17 +1,17 @@
-const User = require('../models/user-model');
-const Blog = require('../models/blog-model');
-const _ = require('lodash');
-const formidable = require('formidable');
-const fs = require('fs');
-const { errorHandler } = require('../helpers/dbErrorHandler');
+import User from '../models/user-model.js';
+import Blog from '../models/blog-model.js';
+import _ from 'lodash';
+import formidable from 'formidable';
+import fs from 'fs';
+import { errorHandler } from '../helpers/dbErrorHandler.js';
 
-exports.read = (req, res) => {
+const read = (req, res) => {
   // set user hashed password to undefined and return its profile
   req.profile.hashed_password = undefined;
   return res.json(req.profile);
 };
 
-exports.publicProfile = (req, res) => {
+const publicProfile = (req, res) => {
   let { username } = req.params;
   let user;
 
@@ -48,7 +48,7 @@ exports.publicProfile = (req, res) => {
   });
 };
 
-exports.updateProfile = (req, res) => {
+const updateProfile = (req, res) => {
   const form = new formidable.IncomingForm();
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
@@ -93,7 +93,7 @@ exports.updateProfile = (req, res) => {
   });
 };
 
-exports.uploadProfilePhoto = (req, res) => {
+const uploadProfilePhoto = (req, res) => {
   const username = req.params.username;
   User.findOne({ username }).exec((err, user) => {
     if (err || !user) {
@@ -107,3 +107,5 @@ exports.uploadProfilePhoto = (req, res) => {
     }
   });
 };
+
+export { read, publicProfile, updateProfile, uploadProfilePhoto }

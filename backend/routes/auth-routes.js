@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const {
+import {
   preSignup,
   signup,
   signin,
@@ -9,16 +9,16 @@ const {
   forgotPassword,
   resetPassword,
   googleLogin
-} = require('../controllers/auth-controller');
+} from '../controllers/auth-controller.js';
 
 // validators
-const { runValidation } = require('../validators');
-const {
+import { runValidation } from '../validators/index.js'
+import {
   userSignupValidator,
   userSigninValidator,
   forgotPasswordValidator,
   resetPasswordValidator
-} = require('../validators/auth-validator');
+} from '../validators/auth-validator.js';
 
 // if validation is passed, execute the code in signup and signin controllers
 router.post('/pre-signup', userSignupValidator, runValidation, preSignup);
@@ -48,4 +48,4 @@ router.post('/google-login', googleLogin);
 //   });
 // });
 
-module.exports = router;
+export default router;

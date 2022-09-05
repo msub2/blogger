@@ -1,13 +1,13 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const {
+import {
   contactForm,
   contactBlogAuthorForm
-} = require('../controllers/form-controller');
+} from '../controllers/form-controller.js';
 
 // validators
-const { runValidation } = require('../validators');
-const { contactFormValidator } = require('../validators/form-validator');
+import { runValidation } from '../validators/index.js';
+import { contactFormValidator } from '../validators/form-validator.js';
 
 router.post('/contact', contactFormValidator, runValidation, contactForm);
 router.post(
@@ -17,4 +17,4 @@ router.post(
   contactBlogAuthorForm
 );
 
-module.exports = router;
+export default router;

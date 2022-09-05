@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Schema;
 
 const BlogSchema = new mongoose.Schema(
@@ -45,4 +45,4 @@ const BlogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Blog', BlogSchema);
+export default mongoose.model('Blog', BlogSchema);

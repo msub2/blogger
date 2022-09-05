@@ -1,20 +1,20 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const {
+import {
   requireSignin,
   adminMiddleWare,
   authMiddleWare
-} = require('../controllers/auth-controller');
-const {
+} from '../controllers/auth-controller.js';
+import {
   read,
   publicProfile,
   updateProfile,
   uploadProfilePhoto
-} = require('../controllers/user-controller');
+} from '../controllers/user-controller.js';
 
 router.get('/user/profile', requireSignin, authMiddleWare, read);
 router.get('/user/:username', publicProfile);
 router.put('/user/update', requireSignin, authMiddleWare, updateProfile);
 router.get('/user/photo/:username', uploadProfilePhoto);
 
-module.exports = router;
+export default router;

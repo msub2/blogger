@@ -1,17 +1,17 @@
-const User = require('../models/user-model');
-const Blog = require('../models/blog-model');
-const shortId = require('shortid');
-const jwt = require('jsonwebtoken');
-const expressJwt = require('express-jwt');
-const _ = require('lodash');
-const { errorHandler } = require('../helpers/dbErrorHandler');
+import Blog from '../models/blog-model.js';
+import User from '../models/user-model.js';
+import shortId from 'shortid';
+import jwt from 'jsonwebtoken';
+import { expressjwt } from 'express-jwt';
+import _ from 'lodash';
+import { errorHandler } from '../helpers/dbErrorHandler.js';
 // *** GOOGLE AUTH ***
-const { OAuth2Client } = require('google-auth-library');
-// *** SENDGRIG MAIL ***
-const sgMail = require('@sendgrid/mail');
+import { OAuth2Client } from 'google-auth-library';
+// *** SENDGRID MAIL ***
+import sgMail from '@sendgrid/mail';
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-exports.preSignup = (req, res) => {
+const preSignup = (req, res) => {
   const { name, email, password } = req.body;
 
   User.findOne({ email: email.toLowerCase() }, (err, user) => {
@@ -55,7 +55,7 @@ exports.preSignup = (req, res) => {
   });
 };
 
-// exports.signup = (req, res) => {
+// const signup = (req, res) => {
 //   User.findOne({ email: req.body.email }).exec((error, user) => {
 //     if (user) {
 //       return res.status(400).json({
@@ -82,7 +82,7 @@ exports.preSignup = (req, res) => {
 //   });
 // };
 
-exports.signup = (req, res) => {
+const signup = (req, res) => {
   const { token } = req.body;
 
   if (token) {
@@ -118,7 +118,7 @@ exports.signup = (req, res) => {
   }
 };
 
-exports.signin = (req, res) => {
+const signin = (req, res) => {
   const { email, password } = req.body;
   // check if user exist
   User.findOne({ email }).exec((error, user) => {
@@ -149,18 +149,18 @@ exports.signin = (req, res) => {
   });
 };
 
-exports.signout = (req, res) => {
+const signout = (req, res) => {
   res.clearCookie('token');
   res.json({
     message: 'Signout success',
   });
 };
 
-exports.requireSignin = expressJwt({
+const requireSignin = expressjwt({
   secret: process.env.JWT_SECRET,
 });
 
-exports.authMiddleWare = (req, res, next) => {
+const authMiddleWare = (req, res, next) => {
   const authUserId = req.user._id;
   // based on the user id, query the database and find user
   // then make it available in the request.profile object
@@ -176,7 +176,7 @@ exports.authMiddleWare = (req, res, next) => {
   });
 };
 
-exports.adminMiddleWare = (req, res, next) => {
+const adminMiddleWare = (req, res, next) => {
   const adminUserId = req.user._id;
   // based on the user id, query the database and find user
   // then make it available in the request.profile object
@@ -198,7 +198,7 @@ exports.adminMiddleWare = (req, res, next) => {
   });
 };
 
-exports.canUpdateAndDeleteBlog = (req, res, next) => {
+const canUpdateAndDeleteBlog = (req, res, next) => {
   const slug = req.params.slug.toLowerCase();
 
   Blog.findOne({ slug }).exec((err, data) => {
@@ -220,7 +220,7 @@ exports.canUpdateAndDeleteBlog = (req, res, next) => {
   });
 };
 
-exports.forgotPassword = (req, res) => {
+const forgotPassword = (req, res) => {
   const { email } = req.body;
 
   User.findOne({ email }, (err, user) => {
@@ -268,7 +268,7 @@ exports.forgotPassword = (req, res) => {
   });
 };
 
-exports.resetPassword = (req, res) => {
+const resetPassword = (req, res) => {
   const { resetPasswordLink, newPassword } = req.body;
 
   // check if you have the reset password
@@ -318,7 +318,7 @@ exports.resetPassword = (req, res) => {
   }
 };
 
-exports.googleLogin = (req, res) => {
+const googleLogin = (req, res) => {
   const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
   const idToken = req.body.tokenId;
 
@@ -381,3 +381,17 @@ exports.googleLogin = (req, res) => {
       }
     });
 };
+
+export { 
+  preSignup,
+  signup,
+  signin,
+  signout,
+  requireSignin,
+  authMiddleWare,
+  adminMiddleWare,
+  canUpdateAndDeleteBlog,
+  forgotPassword,
+  resetPassword,
+  googleLogin
+}
