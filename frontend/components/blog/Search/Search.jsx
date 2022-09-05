@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { blogSearch } from '../../../actions/blog';
-//import './Search.module.scss';
+import './Search.module.scss';
 
 const Search = () => {
   const [values, setValues] = useState({
