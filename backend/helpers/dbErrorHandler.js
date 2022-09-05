@@ -34,10 +34,7 @@ const errorHandler = error => {
         message = 'Something went wrong';
     }
   } else {
-    for (let errorName in error.errorors) {
-      if (error.errorors[errorName].message)
-        message = error.errorors[errorName].message;
-    }
+    message = error.message;
   }
 
   return message;

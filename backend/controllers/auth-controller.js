@@ -161,10 +161,20 @@ const signout = (req, res) => {
 
 const requireSignin = expressjwt({
   secret: process.env.JWT_SECRET,
-  algorithms: ['RS256']
+  algorithms: ['RS256', 'HS256']
 });
 
 const authMiddleWare = (req, res, next) => {
+  const token = req.headers.authorization.split(' ')[1];
+  console.log(req.params);
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.sendStatus(403);
+    }
+    console.log(user);
+
+    req.user = user;
+  });
   const authUserId = req.user._id;
   // based on the user id, query the database and find user
   // then make it available in the request.profile object
