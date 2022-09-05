@@ -5,10 +5,13 @@ import jwt from 'jsonwebtoken';
 import { expressjwt } from 'express-jwt';
 import _ from 'lodash';
 import { errorHandler } from '../helpers/dbErrorHandler.js';
+import * as dotenv from 'dotenv';
 // *** GOOGLE AUTH ***
 import { OAuth2Client } from 'google-auth-library';
 // *** SENDGRID MAIL ***
 import sgMail from '@sendgrid/mail';
+
+dotenv.config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const preSignup = (req, res) => {
@@ -158,6 +161,7 @@ const signout = (req, res) => {
 
 const requireSignin = expressjwt({
   secret: process.env.JWT_SECRET,
+  algorithms: ['RS256']
 });
 
 const authMiddleWare = (req, res, next) => {
