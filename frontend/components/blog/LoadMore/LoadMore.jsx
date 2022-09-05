@@ -1,4 +1,4 @@
-import './LoadMore.scss';
+import './LoadMore.module.scss';
 
 const LoadMore = ({ size, limit, loadMoreBlogs }) => {
   return (

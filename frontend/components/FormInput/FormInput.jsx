@@ -1,4 +1,4 @@
-import './FormInput.scss';
+import './FormInput.module.scss';
 
 const FormInput = ({ handleChange, label, ...otherProps }) => (
   <div className='form-group'>

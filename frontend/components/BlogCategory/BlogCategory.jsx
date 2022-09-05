@@ -1,6 +1,6 @@
 import BlogCard from '../blog/BlogCard/BlogCard';
 
-import './BlogCategory.scss';
+import './BlogCategory.module.scss';
 
 const BlogCategory = ({ category, blogs }) => {
   return (

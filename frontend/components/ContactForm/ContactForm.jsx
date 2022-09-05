@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { emailContactForm } from '../../actions/form';
 import FormInput from '../FormInput/FormInput';
 import TextareaInput from './TextareaInput/TextareaInput';
-import './ContactForm.scss';
+import './ContactForm.module.scss';
 import { toast } from 'react-toastify';
 
 const ContactForm = ({ authorEmail }) => {

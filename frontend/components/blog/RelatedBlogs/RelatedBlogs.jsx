@@ -1,5 +1,5 @@
 import RelatedBlogCard from '../RelatedBlogCard/RelatedBlogCard';
-import './RelatedBlogs.scss';
+import './RelatedBlogs.module.scss';
 
 const RelatedBlogs = ({ relatedBlogs }) => {
   return (

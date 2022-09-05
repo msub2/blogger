@@ -1,6 +1,6 @@
 import BlogCard from '../blog/BlogCard/BlogCard';
 
-import './BlogTag.scss';
+import './BlogTag.module.scss';
 
 const BlogTag = ({ tag, blogs }) => {
   return (

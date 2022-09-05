@@ -6,7 +6,7 @@ import Link from 'next/link';
 import GoogleLoginButton from '../GoogleLogin/GoogleLoginButton';
 import FormInput from '../../FormInput/FormInput';
 
-import './SigninComponent.scss';
+import './SigninComponent.module.scss';
 
 const SigninComponent = () => {
   const [values, setValues] = useState({

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import './BlogsHeader.scss';
+import './BlogsHeader.module.scss';
 
 const BlogsHeader = ({ categories, tags }) => {
   return (

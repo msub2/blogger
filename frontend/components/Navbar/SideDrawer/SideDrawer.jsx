@@ -2,7 +2,7 @@ import { isAuth, signout } from '../../../actions/auth';
 import Router from 'next/router';
 import Link from 'next/link';
 
-import './SideDrawer.scss';
+import './SideDrawer.module.scss';
 
 const SideDrawer = ({ show }) => {
   return (

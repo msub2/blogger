@@ -2,7 +2,7 @@ import Link from 'next/link';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
 import { API } from '../../../config';
-import './RelatedBlogCard.scss';
+import './RelatedBlogCard.module.scss';
 
 const RelatedBlogCard = ({ blog }) => {
   console.log(blog);

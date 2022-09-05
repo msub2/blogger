@@ -1,4 +1,4 @@
-import './ActivateAccount.scss';
+import './ActivateAccount.module.scss';
 
 const ActivateAccount = ({
   name,

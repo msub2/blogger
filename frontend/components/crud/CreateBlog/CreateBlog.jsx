@@ -9,7 +9,7 @@ import 'react-quill/dist/quill.snow.css';
 import FormInput from '../../FormInput/FormInput';
 import { toast } from 'react-toastify';
 
-import './CreateBlog.scss';
+import './CreateBlog.module.scss';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 

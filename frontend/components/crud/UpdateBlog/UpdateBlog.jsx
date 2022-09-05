@@ -9,7 +9,7 @@ import { fetchBlog, updateBlog } from '../../../actions/blog';
 import { API } from '../../../config';
 import FormInput from '../../FormInput/FormInput';
 
-import './UpdateBlog.scss';
+import './UpdateBlog.module.scss';
 import 'react-quill/dist/quill.snow.css';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });

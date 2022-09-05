@@ -2,7 +2,7 @@ import moment from 'moment';
 import Link from 'next/link';
 import { API } from '../../config';
 
-import './Profile.scss';
+import './Profile.module.scss';
 
 const Profile = ({ user, blogs }) => {
   return (

@@ -12,7 +12,7 @@ import {
   NavLink,
 } from 'reactstrap';
 import Search from '../blog/Search/Search';
-import './Header.scss';
+import './Header.module.scss';
 
 Router.onRouteChangeStart = (url) => NProgress.start();
 Router.onRouteChangeComplete = (url) => NProgress.done();

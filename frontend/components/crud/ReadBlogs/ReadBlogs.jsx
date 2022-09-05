@@ -5,7 +5,7 @@ import ReadBlogCard from '../ReadBlogCard/ReadBlogCard';
 import Modal from '../../Modal/Modal';
 import { toast } from 'react-toastify';
 
-import './ReadBlogs.scss';
+import './ReadBlogs.module.scss';
 
 const ReadBlogs = ({ username }) => {
   const [blogs, setBlogs] = useState([]);

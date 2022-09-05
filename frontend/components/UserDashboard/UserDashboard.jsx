@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import './UserDashboard.scss';
+import './UserDashboard.module.scss';
 
 const UserDashboard = () => {
   return (

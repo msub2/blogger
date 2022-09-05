@@ -1,5 +1,5 @@
 import React from 'react';
-import './TextareaInput.scss';
+import './TextareaInput.module.scss';
 
 const TextareaInput = ({ handleChange, label, ...otherProps }) => {
   return (

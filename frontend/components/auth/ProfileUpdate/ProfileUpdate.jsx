@@ -6,7 +6,7 @@ import FormInput from '../../FormInput/FormInput';
 import TextareaInput from '../../ContactForm/TextareaInput/TextareaInput';
 import { toast } from 'react-toastify';
 
-import './ProfileUpdate.scss';
+import './ProfileUpdate.module.scss';
 
 const ProfileUpdate = () => {
   const [values, setValues] = useState({

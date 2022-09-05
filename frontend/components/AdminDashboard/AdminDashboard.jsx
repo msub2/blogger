@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import './AdminDashboard.scss';
+import './AdminDashboard.module.scss';
 
 const AdminDashboard = () => {
   return (

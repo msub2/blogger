@@ -1,6 +1,6 @@
 import Categories from '../Categories/Categories';
 import Tags from '../Tags/Tags';
-import './CategoriesAndTags.scss';
+import './CategoriesAndTags.module.scss';
 
 const CategoriesAndTags = () => {
   return (

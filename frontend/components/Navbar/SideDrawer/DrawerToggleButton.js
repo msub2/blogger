@@ -1,4 +1,4 @@
-import './DrawerToggleButton.scss';
+import './DrawerToggleButton.module.scss';
 
 const DrawerToggleButton = ({ isOpen, click }) => {
   return (

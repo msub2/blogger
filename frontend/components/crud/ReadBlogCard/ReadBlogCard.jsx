@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import moment from 'moment';
-import './ReadBlogCard.scss';
+import './ReadBlogCard.module.scss';
 
 const ReadBlogCard = ({ isAuth, blog, toggleModal }) => {
   return (

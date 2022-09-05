@@ -3,7 +3,7 @@ import renderHTML from 'react-render-html';
 import moment from 'moment';
 import { API } from '../../../config';
 
-import './Blog.scss';
+import './Blog.module.scss';
 
 const Blog = ({ blog, categories }) => {
   return (

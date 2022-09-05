@@ -1,5 +1,5 @@
 import BlogCard from '../BlogCard/BlogCard';
-import './Blogs.scss';
+import './Blogs.module.scss';
 
 const Blogs = ({ blogs, loadedBlogs }) => {
   return (

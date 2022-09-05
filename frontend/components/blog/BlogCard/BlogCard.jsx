@@ -2,7 +2,7 @@ import Link from 'next/link';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
 import { API } from '../../../config';
-import './BlogCard.scss';
+import './BlogCard.module.scss';
 
 const BlogCard = ({ blog }) => (
   <article className='blog-card'>

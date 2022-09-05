@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import './Categories.scss';
+import './Categories.module.scss';
 
 const Categories = () => {
   return (

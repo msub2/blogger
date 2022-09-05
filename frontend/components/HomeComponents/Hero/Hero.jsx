@@ -1,4 +1,4 @@
-import './Hero.scss';
+import './Hero.module.scss';
 
 const Hero = () => {
   return (

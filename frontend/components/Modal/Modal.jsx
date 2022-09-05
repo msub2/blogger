@@ -1,4 +1,4 @@
-import './Modal.scss';
+import './Modal.module.scss';
 
 const Modal = ({ showModal, close, children, deleteItem, slug, text }) => {
   return (

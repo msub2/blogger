@@ -1,5 +1,5 @@
 import FormInput from '../../FormInput/FormInput';
-import './ForgotPassword.scss';
+import './ForgotPassword.module.scss';
 
 const ForgotPassword = (props) => {
   const {

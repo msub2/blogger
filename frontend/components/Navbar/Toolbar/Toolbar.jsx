@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Search from '../../blog/Search/Search';
 
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
-import './Toolbar.scss';
+import './Toolbar.module.scss';
 
 const Toolbar = ({ isOpen, drawerClickHandler }) => (
   <header className='toolbar'>

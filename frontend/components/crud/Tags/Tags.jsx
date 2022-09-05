@@ -4,7 +4,7 @@ import { createTag, getTags, deleteTag } from '../../../actions/tag';
 import FormInput from '../../FormInput/FormInput';
 import Modal from '../../Modal/Modal';
 
-import './Tags.scss';
+import './Tags.module.scss';
 
 const Tags = () => {
   const [values, setValues] = useState({

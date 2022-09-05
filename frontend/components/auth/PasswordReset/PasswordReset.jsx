@@ -1,5 +1,5 @@
 import FormInput from '../../FormInput/FormInput';
-import './PasswordReset.scss';
+import './PasswordReset.module.scss';
 
 const PasswordReset = ({
   newPassword,

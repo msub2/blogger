@@ -8,7 +8,7 @@ import {
 import FormInput from '../../FormInput/FormInput';
 import Modal from '../../Modal/Modal';
 
-import './Categories.scss';
+import './Categories.module.scss';
 
 const Categories = () => {
   const [values, setValues] = useState({
