@@ -2,11 +2,11 @@ import { isAuth, signout } from '../../../actions/auth';
 import Router from 'next/router';
 import Link from 'next/link';
 
-import './SideDrawer.module.scss';
+import styles from './SideDrawer.module.scss';
 
 const SideDrawer = ({ show }) => {
   return (
-    <nav className={show ? 'side-drawer open' : 'side-drawer'}>
+    <nav className={show ? styles['side-drawer open'] : styles['side-drawer']}>
       <ul>
         <li>
           <Link href='/'>

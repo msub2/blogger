@@ -1,5 +1,5 @@
 import FormInput from '../../FormInput/FormInput';
-import './ForgotPassword.module.scss';
+import styles from './ForgotPassword.module.scss';
 
 const ForgotPassword = (props) => {
   const {
@@ -11,10 +11,10 @@ const ForgotPassword = (props) => {
   } = props;
 
   return (
-    <div className='forgot-password'>
-      <div className='forgot-password__wrapper'>
-        <h2 className='forgot-password__title'>Forgot Password</h2>
-        <p className='forgot-password__text'>
+    <div className={styles['forgot-password']}>
+      <div className={styles['forgot-password__wrapper']}>
+        <h2 className={styles['forgot-password__title']}>Forgot Password</h2>
+        <p className={styles['forgot-password__text']}>
           Please enter your email address to request a pasword reset.
         </p>
         <form onSubmit={handleSubmit}>
@@ -24,12 +24,12 @@ const ForgotPassword = (props) => {
             label='Email'
             value={email}
           />
-          <button type='submit' className='forgot-password__btn'>
+          <button type='submit' className={styles['forgot-password__btn']}>
             Request Password Reset
           </button>
         </form>
 
-        <div className='forgot-password__messages'>
+        <div className={styles['forgot-password__messages']}>
           {showSuccessMessage()}
           {showErrorMessage()}
         </div>

@@ -9,7 +9,7 @@ import { fetchBlog, updateBlog } from '../../../actions/blog';
 import { API } from '../../../config';
 import FormInput from '../../FormInput/FormInput';
 
-import './UpdateBlog.module.scss';
+import styles from './UpdateBlog.module.scss';
 import 'react-quill/dist/quill.snow.css';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
@@ -173,10 +173,10 @@ const UpdateBlog = ({ router }) => {
   };
 
   return (
-    <div className='update-blog'>
-      <h4 className='update-blog__title'>Update blog</h4>
+    <div className={styles['update-blog']}>
+      <h4 className={styles['update-blog__title']}>Update blog</h4>
 
-      <div className='update-blog__wrapper'>
+      <div className={styles['update-blog__wrapper']}>
         <form onSubmit={editBlog}>
           <FormInput
             type='text'
@@ -196,18 +196,18 @@ const UpdateBlog = ({ router }) => {
             />
           </div>
 
-          <button type='submit' className='update-blog__publish-btn'>
+          <button type='submit' className={styles['update-blog__publish-btn']}>
             UPDATE BLOG
           </button>
         </form>
 
         <div>
-          <div className='form-group update-blog__featured-image'>
-            <h5 className='update-blog__featured-image-title'>
+          <div className={`${styles['form-group']} ${styles['update-blog__featured-image']}`}>
+            <h5 className={styles['update-blog__featured-image-title']}>
               Featured Image
             </h5>
 
-            <label className='update-blog__upload-img-btn'>
+            <label className={styles['update-blog__upload-img-btn']}>
               Upload Image
               <input
                 onChange={handleChange('photo')}
@@ -216,20 +216,20 @@ const UpdateBlog = ({ router }) => {
                 hidden
               />
             </label>
-            <small className='update-blog__img-size-info'>Max Size: 1MB</small>
+            <small className={styles['update-blog__img-size-info']}>Max Size: 1MB</small>
           </div>
 
           {body && (
             <img
-              className='update-blog__img'
+              className={styles['update-blog__img']}
               src={`${API}/blog/photo/${slug}`}
               alt={title}
             />
           )}
 
           <div>
-            <div className='update-blog__categories'>
-              <h5 className='update-blog__categories-title'>Categories</h5>
+            <div className={styles['update-blog__categories']}>
+              <h5 className={styles['update-blog__categories-title']}>Categories</h5>
               <ul style={{ maxHeight: '120px', overflowY: 'scroll' }}>
                 {categories &&
                   categories.map((category) => (
@@ -242,15 +242,15 @@ const UpdateBlog = ({ router }) => {
                         onChange={handleCategoryToggleCheckbox(category._id)}
                         type='checkbox'
                       />
-                      <label className='form-check-label'>
+                      <label className={styles['form-check-label']}>
                         {category.name}
                       </label>
                     </li>
                   ))}
               </ul>
             </div>
-            <div className='update-blog__tags'>
-              <h5 className='update-blog__tags-title'>Tags</h5>
+            <div className={styles['update-blog__tags']}>
+              <h5 className={styles['update-blog__tags-title']}>Tags</h5>
               <ul style={{ maxHeight: '120px', overflowY: 'scroll' }}>
                 {tags &&
                   tags.map((tag) => (
@@ -260,7 +260,7 @@ const UpdateBlog = ({ router }) => {
                         onChange={handleTagToggleCheckbox(tag._id)}
                         type='checkbox'
                       />
-                      <label className='form-check-label'>{tag.name}</label>
+                      <label className={styles['form-check-label']}>{tag.name}</label>
                     </li>
                   ))}
               </ul>

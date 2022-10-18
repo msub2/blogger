@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { blogSearch } from '../../../actions/blog';
-import './Search.module.scss';
+import styles from './Search.module.scss';
+console.log(styles);
 
 const Search = () => {
   const [values, setValues] = useState({
@@ -64,30 +65,30 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='search'>
+    <form onSubmit={handleSubmit} className={styles.search}>
       <input
         type='search'
-        className='search__input-bar'
+        className={styles['search__input-bar']}
         placeholder='Search...'
         onChange={handleChange}
       />
       {results && (
-        <ul className='search__list-group'>
+        <ul className={styles['search__list-group']}>
           {results.map((blog) => (
             <Link
               href={`/blogs/${blog.slug}`}
               key={blog._id}
-              className='search__link'
+              className={styles.search__link}
             >
-              <a className='search__link'>
-                <li className='search__list-group-item' key={blog._id}>
+              <a className={styles.search__link}>
+                <li className={styles['search__list-group-item']} key={blog._id}>
                   {blog.title}
                 </li>
               </a>
             </Link>
           ))}
           {message ? (
-            <li className='search__list-group-item search__list-group-item__message'>
+            <li className={`${styles['search__list-group-item']} ${styles['search__list-group-item__message']}`}>
               {message}
             </li>
           ) : null}

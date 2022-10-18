@@ -1,10 +1,10 @@
-import './DrawerToggleButton.module.scss';
+import styles from './DrawerToggleButton.module.scss';
 
 const DrawerToggleButton = ({ isOpen, click }) => {
   return (
     <div
       onClick={click}
-      className={isOpen ? 'change toggle-button' : 'toggle-button'}
+      className={isOpen ? styles['change toggle-button'] : styles['toggle-button']}
     >
       <div className='bar1'></div>
       <div className='bar2'></div>

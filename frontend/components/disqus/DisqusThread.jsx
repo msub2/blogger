@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { DISQUS_SHORTNAME, DOMAIN } from '../../config';
-import './Disqus.module.scss';
+import styles from './Disqus.module.scss';
+import React from 'react';
 
 const SHORTNAME = DISQUS_SHORTNAME;
 const WEBSITE_URL = DOMAIN;
@@ -49,7 +50,7 @@ class DisqusThread extends React.Component {
       window.disqus_url = WEBSITE_URL + path;
     }
 
-    return <div className='disqus' {...other} id='disqus_thread' />;
+    return <div className={styles.disqus} {...other} id='disqus_thread' />;
   }
 }
 

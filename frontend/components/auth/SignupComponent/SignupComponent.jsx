@@ -6,7 +6,7 @@ import FormInput from '../../FormInput/FormInput';
 import GoogleLoginButton from '../GoogleLogin/GoogleLoginButton';
 import Link from 'next/link';
 
-import './SignupComponent.module.scss';
+import styles from './SignupComponent.module.scss';
 
 const SignupComponent = () => {
   const [values, setValues] = useState({
@@ -57,7 +57,7 @@ const SignupComponent = () => {
   };
 
   const notifyError = () =>
-    toast(<h3 className='toast-error'>{error}</h3>, {
+    toast(<h3 className={styles['toast-error']}>{error}</h3>, {
       type: toast.TYPE.ERROR,
       position: toast.POSITION.BOTTOM_RIGHT,
       autoClose: 5000,
@@ -68,8 +68,8 @@ const SignupComponent = () => {
   const notifySuccess = () => {
     toast(
       <Link href='/signin'>
-        <a className='signup-form__toast-success-link'>
-          <h3 className='toast-success'>{message}</h3>
+        <a className={styles['signup-form__toast-success-link']}>
+          <h3 className={styles['toast-success']}>{message}</h3>
         </a>
       </Link>,
       {
@@ -84,9 +84,9 @@ const SignupComponent = () => {
   };
 
   return (
-    <section className='signup-form'>
-      <div className='signup-form__wrapper'>
-        <h2 className='signup-form__title'>Join Our Blog</h2>
+    <section className={styles['signup-form']}>
+      <div className={styles['signup-form__wrapper']}>
+        <h2 className={styles['signup-form__title']}>Join Our Blog</h2>
 
         <form onSubmit={handleSubmit}>
           <FormInput
@@ -110,17 +110,17 @@ const SignupComponent = () => {
             value={password}
           />
 
-          <button type='submit' className='signup-form__signup-btn'>
+          <button type='submit' className={styles['signup-form__signup-btn']}>
             SIGN UP
           </button>
 
-          <div className='signup-form__signin-options'>
+          <div className={styles['signup-form__signin-options']}>
             <p>Or sign in with</p>
             <GoogleLoginButton />
           </div>
         </form>
 
-        <div className='notify-message'>
+        <div className={styles['notify-message']}>
           {message ? notifySuccess() : null}
           {error ? notifyError() : null}{' '}
         </div>

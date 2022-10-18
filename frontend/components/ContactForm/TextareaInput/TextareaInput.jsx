@@ -1,19 +1,19 @@
 import React from 'react';
-import './TextareaInput.module.scss';
+import styles from './TextareaInput.module.scss';
 
 const TextareaInput = ({ handleChange, label, ...otherProps }) => {
   return (
-    <div className='form-group'>
+    <div className={styles['form-group']}>
       <textarea
-        className='form-group__textarea'
+        className={styles['form-group__textarea']}
         onChange={handleChange}
         {...otherProps}
       ></textarea>
       {label ? (
         <label
           className={`${
-            otherProps.value.length ? 'shrink' : ''
-          } form-group__textarea-label`}
+            otherProps.value.length ? styles.shrink : ''
+          } ${styles['form-group__textarea-label']}`}
         >
           {label}
         </label>

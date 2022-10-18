@@ -1,16 +1,16 @@
 import BlogCard from '../blog/BlogCard/BlogCard';
 
-import './BlogTag.module.scss';
+import styles from './BlogTag.module.scss';
 
 const BlogTag = ({ tag, blogs }) => {
   return (
-    <section className='blog-tag'>
+    <section className={styles['blog-tag']}>
       <img
-        className='blog-tag__banner-img'
+        className={styles['blog-tag__banner-img']}
         src={`../images/tags/${tag.name.toLowerCase()}.jpg`}
         alt='tag banner'
       />
-      <div className='blog-tag__wrapper'>
+      <div className={styles['blog-tag__wrapper']}>
         {blogs.map((blog) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}

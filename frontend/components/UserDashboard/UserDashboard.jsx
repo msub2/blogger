@@ -1,16 +1,16 @@
 import Link from 'next/link';
-import './UserDashboard.module.scss';
+import styles from './UserDashboard.module.scss';
 
 const UserDashboard = () => {
   return (
-    <section className='user-dashboard'>
-      <div className='user-dashboard__banner'>
-        <h4 className='user-dashboard__title'>User Dashboard</h4>
+    <section className={styles['user-dashboard']}>
+      <div className={styles['user-dashboard__banner']}>
+        <h4 className={styles['user-dashboard__title']}>User Dashboard</h4>
       </div>
-      <ul className='user-dashboard__list-group'>
-        <li className='user-dashboard__list-group-item'>
+      <ul className={styles['user-dashboard__list-group']}>
+        <li className={styles['user-dashboard__list-group-item']}>
           <img
-            className='user-dashboard__list-group-item__icon'
+            className={styles['user-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/blog.svg'
             alt=''
           />
@@ -19,9 +19,9 @@ const UserDashboard = () => {
           </Link>
         </li>
 
-        <li className='user-dashboard__list-group-item'>
+        <li className={styles['user-dashboard__list-group-item']}>
           <img
-            className='user-dashboard__list-group-item__icon'
+            className={styles['user-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/update.svg'
             alt=''
           />
@@ -30,9 +30,9 @@ const UserDashboard = () => {
           </Link>
         </li>
 
-        <li className='user-dashboard__list-group-item'>
+        <li className={styles['user-dashboard__list-group-item']}>
           <img
-            className='user-dashboard__list-group-item__icon'
+            className={styles['user-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/edit.svg'
             alt=''
           />

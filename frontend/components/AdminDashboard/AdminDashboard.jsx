@@ -1,16 +1,16 @@
 import Link from 'next/link';
-import './AdminDashboard.module.scss';
+import styles from './AdminDashboard.module.scss';
 
 const AdminDashboard = () => {
   return (
-    <section className='admin-dashboard'>
-      <div className='admin-dashboard__banner'>
-        <h4 className='admin-dashboard__title'>Admin Dashboard</h4>
+    <section className={styles.admin-dashboard}>
+      <div className={styles['admin-dashboard__banner']}>
+        <h4 className={styles['admin-dashboard__title']}>Admin Dashboard</h4>
       </div>
-      <ul className='admin-dashboard__list-group'>
-        <li className='admin-dashboard__list-group-item'>
+      <ul className={styles['admin-dashboard__list-group']}>
+        <li className={styles['admin-dashboard__list-group-item']}>
           <img
-            className='admin-dashboard__list-group-item__icon'
+            className={styles['admin-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/category.svg'
             alt=''
           />
@@ -18,9 +18,9 @@ const AdminDashboard = () => {
             <a>Create Categories</a>
           </Link>
         </li>
-        <li className='admin-dashboard__list-group-item'>
+        <li className={styles['admin-dashboard__list-group-item']}>
           <img
-            className='admin-dashboard__list-group-item__icon'
+            className={styles['admin-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/tag.svg'
             alt=''
           />
@@ -29,9 +29,9 @@ const AdminDashboard = () => {
           </Link>
         </li>
 
-        <li className='admin-dashboard__list-group-item'>
+        <li className={styles['admin-dashboard__list-group-item']}>
           <img
-            className='admin-dashboard__list-group-item__icon'
+            className={styles['admin-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/blog.svg'
             alt=''
           />
@@ -40,9 +40,9 @@ const AdminDashboard = () => {
           </Link>
         </li>
 
-        <li className='admin-dashboard__list-group-item'>
+        <li className={styles['admin-dashboard__list-group-item']}>
           <img
-            className='admin-dashboard__list-group-item__icon'
+            className={styles['admin-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/update.svg'
             alt=''
           />
@@ -51,9 +51,9 @@ const AdminDashboard = () => {
           </Link>
         </li>
 
-        <li className='admin-dashboard__list-group-item'>
+        <li className={styles['admin-dashboard__list-group-item']}>
           <img
-            className='admin-dashboard__list-group-item__icon'
+            className={styles['admin-dashboard__list-group-item__icon']}
             src='images/dashboard-icons/edit.svg'
             alt=''
           />

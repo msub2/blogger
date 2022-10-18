@@ -4,21 +4,21 @@ import Link from 'next/link';
 import Search from '../../blog/Search/Search';
 
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
-import './Toolbar.module.scss';
+import styles from './Toolbar.module.scss';
 
 const Toolbar = ({ isOpen, drawerClickHandler }) => (
-  <header className='toolbar'>
-    <div className='toolbar-wrapper'>
-      <nav className='toolbar__navigation'>
-        <div className='toolbar__logo'>
+  <header className={styles.toolbar}>
+    <div className={styles['toolbar-wrapper']}>
+      <nav className={styles.toolbar__navigation}>
+        <div className={styles.toolbar__logo}>
           <Link href='/'>
             <a>
               Blogging <span>Coder</span>
             </a>
           </Link>
         </div>
-        <div className='spacer' />
-        <div className='toolbar_navigation-items'>
+        <div className={styles.spacer} />
+        <div className={styles['toolbar_navigation-items']}>
           <ul>
             <li>
               <Search />
@@ -76,7 +76,7 @@ const Toolbar = ({ isOpen, drawerClickHandler }) => (
           </ul>
         </div>
 
-        <div className='toolbar__toggle-button'>
+        <div className={styles['toolbar__toggle-button']}>
           <DrawerToggleButton isOpen={isOpen} click={drawerClickHandler} />
         </div>
       </nav>

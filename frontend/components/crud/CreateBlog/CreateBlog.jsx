@@ -9,7 +9,7 @@ import 'react-quill/dist/quill.snow.css';
 import FormInput from '../../FormInput/FormInput';
 import { toast } from 'react-toastify';
 
-import './CreateBlog.module.scss';
+import styles from './CreateBlog.module.scss';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -121,8 +121,12 @@ const CreateBlog = ({ router }) => {
 
   const publishBlog = (e) => {
     e.preventDefault();
+    console.log(token);
     createBlog(formData, token).then((data) => {
+      console.log(data);
       if (data.error) {
+        // TODO: Data with just empty error message gets read as falsy
+        // Need to catch this
         setValues({ ...values, error: data.error });
       } else {
         setValues({
@@ -161,7 +165,7 @@ const CreateBlog = ({ router }) => {
   };
 
   const notifyError = () => {
-    toast(<h3 className='toast-error'>{error}</h3>, {
+    toast(<h3 className={styles['toast-error']}>{error}</h3>, {
       type: toast.TYPE.ERROR,
       position: toast.POSITION.BOTTOM_RIGHT,
       autoClose: 5000,
@@ -172,7 +176,7 @@ const CreateBlog = ({ router }) => {
   };
 
   const notifySuccess = () => {
-    toast(<h3 className='toast-success'>{success}</h3>, {
+    toast(<h3 className={styles['toast-success']}>{success}</h3>, {
       type: toast.TYPE.SUCCESS,
       position: toast.POSITION.BOTTOM_RIGHT,
       autoClose: 5000,
@@ -183,10 +187,10 @@ const CreateBlog = ({ router }) => {
   };
 
   return (
-    <section className='create-blog'>
-      <h4 className='create-blog__title'>Create new blog</h4>
+    <section className={styles['create-blog']}>
+      <h4 className={styles['create-blog__title']}>Create new blog</h4>
 
-      <div className='create-blog__wrapper'>
+      <div className={styles['create-blog__wrapper']}>
         <form onSubmit={publishBlog}>
           <FormInput
             type='text'
@@ -195,7 +199,7 @@ const CreateBlog = ({ router }) => {
             onChange={handleChange('title')}
             required
           />
-          <div className='form-group'>
+          <div className={styles['form-group']}>
             <ReactQuill
               modules={CreateBlog.modules}
               formats={CreateBlog.formats}
@@ -206,17 +210,17 @@ const CreateBlog = ({ router }) => {
             />
           </div>
 
-          <button type='submit' className='create-blog__publish-btn'>
+          <button type='submit' className={styles['create-blog__publish-btn']}>
             PUBLISH
           </button>
         </form>
         <div>
-          <div className='form-group create-blog__featured-image'>
-            <h5 className='create-blog__featured-image-title'>
+          <div className={`${styles['form-group']} ${styles['create-blog__featured-image']}`}>
+            <h5 className={styles['create-blog__featured-image-title']}>
               Featured Image
             </h5>
 
-            <label className='create-blog__upload-img-btn'>
+            <label className={styles['create-blog__upload-img-btn']}>
               Upload Image
               <input
                 onChange={handleChange('photo')}
@@ -225,11 +229,11 @@ const CreateBlog = ({ router }) => {
                 hidden
               />
             </label>
-            <small className='create-blog__img-size-info'>Max Size: 1MB</small>
+            <small className={styles['create-blog__img-size-info']}>Max Size: 1MB</small>
           </div>
           <div>
-            <div className='create-blog__categories'>
-              <h5 className='create-blog__categories-title'>Categories</h5>
+            <div className={styles['create-blog__categories']}>
+              <h5 className={styles['create-blog__categories-title']}>Categories</h5>
               <ul style={{ maxHeight: '120px', overflowY: 'scroll' }}>
                 {categories &&
                   categories.map((category) => (
@@ -238,15 +242,15 @@ const CreateBlog = ({ router }) => {
                         onChange={handleCategoryToggleCheckbox(category._id)}
                         type='checkbox'
                       />
-                      <label className='form-check-label'>
+                      <label className={styles['form-check-label']}>
                         {category.name}
                       </label>
                     </li>
                   ))}
               </ul>
             </div>
-            <div className='create-blog__tags'>
-              <h5 className='create-blog__tags-title'>Tags</h5>
+            <div className={styles['create-blog__tags']}>
+              <h5 className={styles['create-blog__tags-title']}>Tags</h5>
               <ul style={{ maxHeight: '120px', overflowY: 'scroll' }}>
                 {tags &&
                   tags.map((tag) => (
@@ -255,7 +259,7 @@ const CreateBlog = ({ router }) => {
                         onChange={handleTagToggleCheckbox(tag._id)}
                         type='checkbox'
                       />
-                      <label className='form-check-label'>{tag.name}</label>
+                      <label className={styles['form-check-label']}>{tag.name}</label>
                     </li>
                   ))}
               </ul>
@@ -263,7 +267,7 @@ const CreateBlog = ({ router }) => {
           </div>
         </div>
       </div>
-      <div className='notify-message'>
+      <div className={styles['notify-message']}>
         {success ? notifySuccess() : null}
         {error ? notifyError() : null}
       </div>

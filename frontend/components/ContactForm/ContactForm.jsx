@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { emailContactForm } from '../../actions/form';
 import FormInput from '../FormInput/FormInput';
 import TextareaInput from './TextareaInput/TextareaInput';
-import './ContactForm.module.scss';
+import styles from './ContactForm.module.scss';
 import { toast } from 'react-toastify';
 
 const ContactForm = ({ authorEmail }) => {
@@ -55,7 +55,7 @@ const ContactForm = ({ authorEmail }) => {
   };
 
   const notifyError = () => {
-    toast(<h3 className='toast-error'>{error}</h3>, {
+    toast(<h3 className={Styles['toast-error']}>{error}</h3>, {
       type: toast.TYPE.ERROR,
       position: toast.POSITION.BOTTOM_RIGHT,
       autoClose: 5000,
@@ -66,7 +66,7 @@ const ContactForm = ({ authorEmail }) => {
   };
 
   const notifySuccess = () =>
-    toast(<h3 className='toast-success'>Thank you for contacting us.</h3>, {
+    toast(<h3 className={['toast-success']}>Thank you for contacting us.</h3>, {
       type: toast.TYPE.SUCCESS,
       position: toast.POSITION.BOTTOM_RIGHT,
       autoClose: 5000,
@@ -74,12 +74,12 @@ const ContactForm = ({ authorEmail }) => {
       hideProgressBar: true,
     });
   return (
-    <div className='contact-form'>
-      <div className='contact-form__banner'>
-        <h2 className='contact-form__title'>Contact Us</h2>
+    <div className={styles['contact-form']}>
+      <div className={styles['contact-form__banner']}>
+        <h2 className={styles['contact-form__title']}>Contact Us</h2>
       </div>
 
-      <div className='contact-form__form-wrapper'>
+      <div className={styles['contact-form__form-wrapper']}>
         <form onSubmit={handleSubmit}>
           <TextareaInput
             type='text'
@@ -105,20 +105,20 @@ const ContactForm = ({ authorEmail }) => {
             required
           />
 
-          <button type='submit' className='contact-form__contact-btn'>
+          <button type='submit' className={styles['contact-form__contact-btn']}>
             {buttonText}
           </button>
         </form>
 
-        <div className='contact-form__right-container'>
-          <ul className='contact-form__contact-options'>
+        <div className={styles['contact-form__right-container']}>
+          <ul className={styles['contact-form__contact-options']}>
             <li>
               <a
-                className='contact-form__contact-options--link'
+                className={styles['contact-form__contact-options--link']}
                 href='https://www.facebook.com/'
               >
                 <img
-                  className='contact-form__contact-options__icon'
+                  className={styles['contact-form__contact-options__icon']}
                   src='images/social-icons/facebook.svg'
                   alt=''
                 />{' '}
@@ -127,11 +127,11 @@ const ContactForm = ({ authorEmail }) => {
             </li>
             <li>
               <a
-                className='contact-form__contact-options--link'
+                className={styles['contact-form__contact-options--link']}
                 href='https://www.twitter.com/'
               >
                 <img
-                  className='contact-form__contact-options__icon'
+                  className={styles['contact-form__contact-options__icon']}
                   src='images/social-icons/twitter.svg'
                   alt=''
                 />
@@ -140,11 +140,11 @@ const ContactForm = ({ authorEmail }) => {
             </li>
             <li>
               <a
-                className='contact-form__contact-options--link'
+                className={styles['contact-form__contact-options--link']}
                 href='https://www.linkedin.com/'
               >
                 <img
-                  className='contact-form__contact-options__icon'
+                  className={styles['contact-form__contact-options__icon']}
                   src='images/social-icons/linkedin.svg'
                   alt=''
                 />
@@ -153,11 +153,11 @@ const ContactForm = ({ authorEmail }) => {
             </li>
             <li>
               <a
-                className='contact-form__contact-options--link'
+                className={styles['contact-form__contact-options--link']}
                 href='mailto:hello@bloggingcoder.com'
               >
                 <img
-                  className='contact-form__contact-options__icon'
+                  className={styles['contact-form__contact-options__icon']}
                   src='images/social-icons/email.svg'
                   alt=''
                 />
@@ -167,7 +167,7 @@ const ContactForm = ({ authorEmail }) => {
           </ul>
         </div>
       </div>
-      <div className='notify-message'>
+      <div className={styles['notify-message']}>
         {success ? notifySuccess() : null}
         {error ? notifyError() : null}
       </div>

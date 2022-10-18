@@ -6,7 +6,7 @@ import Link from 'next/link';
 import GoogleLoginButton from '../GoogleLogin/GoogleLoginButton';
 import FormInput from '../../FormInput/FormInput';
 
-import './SigninComponent.module.scss';
+import styles from './SigninComponent.module.scss';
 
 const SigninComponent = () => {
   const [values, setValues] = useState({
@@ -53,7 +53,7 @@ const SigninComponent = () => {
   };
 
   const notify = () =>
-    toast(<h3 className='toast-error'>{error}</h3>, {
+    toast(<h3 className={styles['toast-error']}>{error}</h3>, {
       type: toast.TYPE.ERROR,
       position: toast.POSITION.BOTTOM_RIGHT,
       autoClose: 5000,
@@ -62,9 +62,9 @@ const SigninComponent = () => {
     });
 
   return (
-    <section className='signin-form'>
-      <div className='signin-form__wrapper'>
-        <h2 className='signin-form__title'>Sign In</h2>
+    <section className={styles['signin-form']}>
+      <div className={styles['signin-form__wrapper']}>
+        <h2 className={styles['signin-form__title']}>Sign In</h2>
         <form onSubmit={handleSubmit}>
           <FormInput
             onChange={handleChange('email')}
@@ -80,23 +80,23 @@ const SigninComponent = () => {
             value={password}
           />
 
-          <button type='submit' className='signin-form__signin-btn'>
+          <button type='submit' className={styles['signin-form__signin-btn']}>
             SIGN IN
           </button>
 
-          <div className='signin-form__signin-options'>
+          <div className={styles['signin-form__signin-options']}>
             <p>Or sign in with</p>
             <GoogleLoginButton />
           </div>
-          <div className='signin-form__forgot-password'>
+          <div className={styles['signin-form__forgot-password']}>
             <Link href='/auth/password/forgot'>
-              <a className='signin-form__forgot-password--link'>
+              <a className={styles['signin-form__forgot-password--link']}>
                 Forgot Password?
               </a>
             </Link>
           </div>
         </form>
-        <div className='notify-message'>{error ? notify() : null}</div>
+        <div className={styles['notify-message']}>{error ? notify() : null}</div>
       </div>
     </section>
   );

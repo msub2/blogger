@@ -3,24 +3,25 @@ import renderHTML from 'react-render-html';
 import moment from 'moment';
 import { API } from '../../../config';
 
-import './Blog.module.scss';
+import styles from './Blog.module.scss';
 
 const Blog = ({ blog, categories }) => {
   return (
-    <article className='blog'>
+    <article className={styles.blog}>
+      {}
       <figure>
         <img
           src={`${API}/blog/photo/${blog.slug}`}
           alt={blog.title}
-          className='blog__banner-img'
+          className={styles['blog__banner-img']}
         />
       </figure>
 
-      <div className='blog__wrapper'>
-        <div className='blog__content'>
+      <div className={styles.blog__wrapper}>
+        <div className={styles.blog__content}>
           <section>
-            <h1 className='blog__title'>{blog.title}</h1>
-            <p className='blog__written-by'>
+            <h1 className={styles.blog__title}>{blog.title}</h1>
+            <p className={styles['blog__written-by']}>
               Written by{' '}
               <Link href={`/profile/${blog.postedBy.username}`}>
                 <a>
@@ -30,29 +31,29 @@ const Blog = ({ blog, categories }) => {
               | Published {moment(blog.updatedAt).fromNow()}
             </p>
           </section>
-          <section className='blog__categories-tags'>
+          <section className={styles['blog__categories-tags']}>
             {blog.categories.map((category) => (
               <Link key={category._id} href={`/categories/${category.slug}`}>
-                <a className='blog__category'>{category.name}</a>
+                <a className={styles.blog__category}>{category.name}</a>
               </Link>
             ))}
 
             {blog.tags.map((tag) => (
               <Link key={tag._id} href={`/tags/${tag.slug}`}>
-                <a className='blog__tag'>{tag.name}</a>
+                <a className={styles.blog__tag}>{tag.name}</a>
               </Link>
             ))}
             <br />
           </section>
           <section>
-            <div className='blog__text'>{renderHTML(blog.body)}</div>
+            <div className={styles.blog__text}>{renderHTML(blog.body)}</div>
           </section>
         </div>
-        <div className='blog__sidebar'>
-          <div className='blog__sidebar-categories'>
+        <div className={styles.blog__sidebar}>
+          <div className={styles['blog__sidebar-categories']}>
             {categories.map((category) => (
               <Link key={category._id} href={`/categories/${category.slug}`}>
-                <a className='blog__sidebar-category'>{category.name}</a>
+                <a className={styles['blog__sidebar-category']}>{category.name}</a>
               </Link>
             ))}
           </div>

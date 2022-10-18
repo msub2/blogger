@@ -5,7 +5,7 @@ import ReadBlogCard from '../ReadBlogCard/ReadBlogCard';
 import Modal from '../../Modal/Modal';
 import { toast } from 'react-toastify';
 
-import './ReadBlogs.module.scss';
+import styles from './ReadBlogs.module.scss';
 
 const ReadBlogs = ({ username }) => {
   const [blogs, setBlogs] = useState([]);
@@ -60,9 +60,9 @@ const ReadBlogs = ({ username }) => {
 
   return (
     <>
-      <div className='read-blogs'>
-        <div className='read-blogs__banner'>
-          <h4 className='read-blogs__title'>Manage Blogs</h4>
+      <div className={styles['read-blogs']}>
+        <div className={styles['read-blogs__banner']}>
+          <h4 className={styles['read-blogs__title']}>Manage Blogs</h4>
         </div>
 
         {blogs.map((blog) => (

@@ -6,7 +6,7 @@ import FormInput from '../../FormInput/FormInput';
 import TextareaInput from '../../ContactForm/TextareaInput/TextareaInput';
 import { toast } from 'react-toastify';
 
-import './ProfileUpdate.module.scss';
+import styles from './ProfileUpdate.module.scss';
 
 const ProfileUpdate = () => {
   const [values, setValues] = useState({
@@ -125,16 +125,16 @@ const ProfileUpdate = () => {
   };
 
   return (
-    <div className='profile-update'>
-      <div className='profile-update__img-wrapper'>
+    <div className={styles['profile-update']}>
+      <div className={styles['profile-update__img-wrapper']}>
         <img
-          className='profile-update__img'
+          className={styles['profile-update__img']}
           src={`${API}/user/photo/${username}`}
           alt='user profile'
         />
 
-        <div className='profile-update__profile-photo-btn'>
-          <label className='profile-update__profile-photo-btn__label'>
+        <div className={styles['profile-update__profile-photo-btn']}>
+          <label className={styles['profile-update__profile-photo-btn__label']}>
             Profile Photo
             <input
               onChange={handleChange('photo')}
@@ -146,7 +146,7 @@ const ProfileUpdate = () => {
           </label>
         </div>
       </div>
-      <div className='profile-update__data'>
+      <div className={styles['profile-update__data']}>
         <form onSubmit={handleSubmit}>
           <FormInput
             label='Name'
@@ -178,7 +178,7 @@ const ProfileUpdate = () => {
             value={password}
           />
 
-          <button type='submit' className='profile-update__btn'>
+          <button type='submit' className={styles['profile-update__btn']}>
             Update Profile
           </button>
         </form>
